@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css'
-import Counters from './components/counters';
+import MainComponent from './components_index/mainComponent';
+//import MainComponentResult from './components_result/mainComponentResult';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Counters />
+    <MainComponent />
   </React.StrictMode>
 );
 

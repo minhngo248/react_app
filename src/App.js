@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+/*import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -20,6 +20,17 @@ function App() {
       </header>
     </div>
   );
-}
+}*/
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+const App = () => {
+    return (
+        <div>
+            <p>Welcome</p>
+            <Link to="/home">To search bar</Link>
+        </div>
+    );
+};
 
 export default App;
