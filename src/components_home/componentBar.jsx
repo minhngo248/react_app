@@ -3,8 +3,11 @@ import React, { Component } from "react";
 import axios from "axios";
 
 class ComponentBar extends Component {
-  state = {
-    jsonData: Object()
+  constructor(props) {
+    super(props); 
+    this.state = {
+      jsonData: Object()
+    }
   }
 
   handleSubmitButton = () => {
@@ -20,12 +23,15 @@ class ComponentBar extends Component {
         });
         const elemText = document.createElement('h3');
         elemText.innerHTML = 'Results';
+        elemText.setAttribute('id', 'h3_results');
         elemInfo.appendChild(elemText);
         const elemUL = document.createElement('ul');
+        elemUL.setAttribute('id', 'ul_results');
         for (var i in response.data) {
-          const elemA = document.createElement('a');
-          elemA.setAttribute('href', '/result.html');
-          elemA.innerHTML = response.data[i].name.value;
+          const elemA = document.createElement("a");
+          elemA.setAttribute("href", "/result");
+          elemA.addEventListener("click", this.handleResultButton);
+          elemA.innerHTML = response.data[i].englishName.value;
           const elemLI = document.createElement('li');
           elemLI.appendChild(elemA);
           elemUL.appendChild(elemLI);
@@ -36,6 +42,18 @@ class ComponentBar extends Component {
         console.log(error);
       }
     );
+  }
+
+  handleResultButton = () => {
+    const url = `https://expressminhapp.azurewebsites.net/api/animes`;
+    axios.get(url)
+    .then( (response) => {
+        console.log(response.data)
+      },
+      (error) => {
+        console.log(error);
+      }
+    );    
   }
 
   handleFilterButton() {

@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import ComponentBar from './componentBar';
 
-class MainComponent extends Component {
-    state = { 
-        jsonData: Object()
+class MainComponentHome extends Component {
+  constructor(props) {
+    super(props); 
+    this.state = {
+      jsonData: Object()
     }
+  }
     
     /*componentDidMount() {
         axios({
@@ -24,11 +27,6 @@ class MainComponent extends Component {
     }*/
 
     render() { 
-        const jsonAnime = this.state.jsonData;
-        var arrAnime = [];
-        for (var i in jsonAnime) {
-            arrAnime.push(jsonAnime[i]);
-        }
         return (
             <React.Fragment>
                 <ComponentBar />
@@ -38,4 +36,4 @@ class MainComponent extends Component {
     }
 }
 
-export default MainComponent;
+export default MainComponentHome;

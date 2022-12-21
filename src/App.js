@@ -1,36 +1,35 @@
-/*import logo from './logo.svg';
+import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import MainComponentHome from './components_home/mainComponentHome';
+import MainComponentResult from './components_result/mainComponentResult';
+import { BrowserRouter as Router, Switch, Redirect, Route } from 'react-router-dom';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* This is the alias of BrowserRouter i.e. Router */}
+      <Router>
+        <Switch>
+          {/* This route is for home component 
+          with exact path "/", in component props 
+          we passes the imported component*/}
+          <Route exact path="/" component={MainComponentHome} />
+            
+          {/* This route is for about component 
+          with exact path "/about", in component 
+          props we passes the imported component*/}
+          <Route path="/result" component={MainComponentResult} />
+            
+          {/* If any route mismatches the upper 
+          route endpoints then, redirect triggers 
+          and redirects app to home component with to="/" */}
+          <Redirect to="/" />
+        </Switch>
+      </Router>
+    </>
   );
-}*/
-
-import React from 'react';
-import { Link } from 'react-router-dom';
-const App = () => {
-    return (
-        <div>
-            <p>Welcome</p>
-            <Link to="/home">To search bar</Link>
-        </div>
-    );
-};
+}
 
 export default App;
