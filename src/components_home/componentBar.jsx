@@ -10,12 +10,13 @@ class ComponentBar extends Component {
     }
   }
 
-  handleSubmitButton = () => {
+  handleSearchButton = () => {
     const elemInfo = document.getElementById("info_anime");
     const nameAnime = document.getElementById("nameAnime").value;
     const director = document.getElementById('director').value;
-    const date = document.getElementById('dateAnime').value;
-    const url = `https://expressminhapp.azurewebsites.net/api/anime/${nameAnime}/${director}/${date}`;
+    const dateFrom = document.getElementById('dateFrom').value;
+    const dateTo = document.getElementById('dateTo').value;
+    const url = `https://expressminhapp.azurewebsites.net/api/anime/${nameAnime}/${director}/${dateFrom}/${dateTo}`;
     axios.get(url)
     .then( (response) => {
         this.setState({
@@ -53,10 +54,11 @@ class ComponentBar extends Component {
         <br />
         <input type="text" id="nameAnime" name="nameAnime" placeholder="name"/><br/>  
         <label>Director </label>
-        <input type="text" id="director" name="director" placeholder="some text"/>
-        <label>Release date </label>
-        <input type="date" id="dateAnime" name="dateAnime" /><br />
-        <button id="button_search" onClick={this.handleSubmitButton}>Submit</button><br />
+        <input type="text" id="director" name="director" placeholder="some text"/><br />
+        <label>Release date </label><br/>
+        From <input type="date" id="dateFrom" name="dateFrom" /> to <input type="date" id="dateTo" name="dateTo"/>
+        <br />
+        <button id="button_search" onClick={this.handleSearchButton}>Search</button><br />
       </React.Fragment>
     );
   }
