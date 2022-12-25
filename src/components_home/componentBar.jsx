@@ -29,9 +29,11 @@ class ComponentBar extends Component {
         elemUL.setAttribute('id', 'ul_results');
         for (var i in response.data) {
           const elemA = document.createElement("a");
-          elemA.setAttribute("href", "/result");
-          elemA.addEventListener("click", this.handleResultButton);
-          elemA.innerHTML = response.data[i].englishName.value;
+          var string = new String(response.data[i].item.value);
+          var indQ = string.indexOf('Q');
+          var idAni = string.slice(indQ, string.length);
+          elemA.setAttribute("href", "/result?idAnime=" + idAni);
+          elemA.innerHTML = response.data[i].name.value;
           const elemLI = document.createElement('li');
           elemLI.appendChild(elemA);
           elemUL.appendChild(elemLI);
@@ -44,36 +46,16 @@ class ComponentBar extends Component {
     );
   }
 
-  handleResultButton = () => {
-    const url = `https://expressminhapp.azurewebsites.net/api/animes`;
-    axios.get(url)
-    .then( (response) => {
-        console.log(response.data)
-      },
-      (error) => {
-        console.log(error);
-      }
-    );    
-  }
-
-  handleFilterButton() {
-    const elemMore = document.getElementById('more');
-    elemMore.setAttribute('style', 'display: block');
-  }
-
   render() { 
     return (
       <React.Fragment>
         <label>Name of anime:</label>
         <br />
-        <input type="text" id="nameAnime" name="nameAnime" placeholder="name"/>
-        <button id="button_filter" onClick={this.handleFilterButton}>Filter</button><br/>  
-        <div id="more" style={{ display: "none" }}>
+        <input type="text" id="nameAnime" name="nameAnime" placeholder="name"/><br/>  
         <label>Director </label>
         <input type="text" id="director" name="director" placeholder="some text"/>
         <label>Release date </label>
         <input type="date" id="dateAnime" name="dateAnime" /><br />
-        </div>
         <button id="button_search" onClick={this.handleSubmitButton}>Submit</button><br />
       </React.Fragment>
     );
