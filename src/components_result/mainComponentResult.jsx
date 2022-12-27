@@ -223,7 +223,7 @@ class MainComponentResult extends Component {
       "-" +
       today.getDate();
     window.location.assign(
-      `/searchedResult?name=${nameAnime}&director=&dateFrom=${dateFrom}&dateTo=${dateTo}`
+      encodeURI(`/searchedResult?name=${nameAnime}&director=&dateFrom=${dateFrom}&dateTo=${dateTo}`)
     );
   }
 

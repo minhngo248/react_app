@@ -20,8 +20,9 @@ class ComponentSearchedResult extends Component {
     const elemRoot = document.getElementById("root");
     const elemInfo = document.createElement("div");
     elemInfo.setAttribute("id", "info_anime");
-    const url = `https://expressminhapp.azurewebsites.net/api/anime?name=${nameAnime}&director=${director}&dateFrom=${dateFrom}&dateTo=${dateTo}`;
-    axios.get(url).then(
+    var url = `https://expressminhapp.azurewebsites.net/api/anime?name=${nameAnime}&director=${director}&dateFrom=${dateFrom}&dateTo=${dateTo}`;
+    axios.get(url)
+    .then(
       (response) => {
         this.setState({
           jsonData: response.data,
@@ -59,7 +60,7 @@ class ComponentSearchedResult extends Component {
     var today = new Date();
     const dateTo = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
     window.location.assign(
-      `/searchedResult?name=${nameAnime}&director=&dateFrom=${dateFrom}&dateTo=${dateTo}`
+      encodeURI(`/searchedResult?name=${nameAnime}&director=&dateFrom=${dateFrom}&dateTo=${dateTo}`)
     );
   }
 

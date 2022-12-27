@@ -20,7 +20,9 @@ class ComponentBar extends Component {
       var today = new Date();
       dateTo = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate();
     }
-    window.location.assign(`/searchedResult?name=${nameAnime}&director=${director}&dateFrom=${dateFrom}&dateTo=${dateTo}`);
+    window.location.assign(
+      encodeURI(`/searchedResult?name=${nameAnime}&director=${director}&dateFrom=${dateFrom}&dateTo=${dateTo}`)
+    );
   }
 
   render() { 
