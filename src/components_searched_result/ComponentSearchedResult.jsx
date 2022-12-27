@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import UpperSearchBarComponent from "../upperSearchBarComponent";
 
 class ComponentSearchedResult extends Component {
   constructor(props) {
@@ -54,43 +55,11 @@ class ComponentSearchedResult extends Component {
     this._mounted = true;
   }
 
-  handleSearchButton() {
-    const nameAnime = document.getElementById("search_name_anime").value;
-    const dateFrom = "1900-01-01";
-    var today = new Date();
-    const dateTo = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
-    window.location.assign(
-      encodeURI(`/searchedResult?name=${nameAnime}&director=&dateFrom=${dateFrom}&dateTo=${dateTo}`)
-    );
-  }
-
   render() {
     return (
-      <React.StrictMode>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <div className="container-fluid">
-            <a className="navbar-brand" href="/">
-              Home
-            </a>
-            <div className="d-flex">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-                id="search_name_anime"
-              />
-              <button
-                className="btn btn-outline-success"
-                type="submit"
-                onClick={this.handleSearchButton}
-              >
-                Search
-              </button>
-            </div>
-          </div>
-        </nav>
-      </React.StrictMode>
+      <React.Fragment>
+        <UpperSearchBarComponent />
+      </React.Fragment>
     );
   }
 }

@@ -5,6 +5,7 @@ import MainComponentHome from './components_home/mainComponentHome';
 import MainComponentResult from './components_result/mainComponentResult';
 import ComponentSearchedResult from './components_searched_result/ComponentSearchedResult';
 import { BrowserRouter as Router, Switch, Redirect, Route } from 'react-router-dom';
+import ComponentRating from './components_rating/componentRating';
 
 
 function App() {
@@ -27,6 +28,11 @@ function App() {
           with exact path "/about", in component 
           props we passes the imported component*/}
           <Route path="/searchedResult" component={ComponentSearchedResult} />
+
+          {/* This route is for about component 
+          with exact path "/about", in component 
+          props we passes the imported component*/}
+          <Route path="/topRating" component={ComponentRating} />
             
           {/* If any route mismatches the upper 
           route endpoints then, redirect triggers 
