@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Container, Nav, Navbar, Form, Button } from "react-bootstrap";
 
 class UpperSearchBarComponent extends Component {
   state = {};
@@ -23,39 +24,31 @@ class UpperSearchBarComponent extends Component {
   render() {
     return (
       <React.Fragment>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <div className="container-fluid">
-            <a className="navbar-brand" href="#">
-              NavBar
-            </a>
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">Home</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/topRating">Top rating</a>
-              </li>
-              </ul>
-            </div>
-            <div className="d-flex">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-                id="search_name_anime"
-              />
-              <button
-                className="btn btn-outline-success"
-                type="submit"
-                onClick={this.handleSearchButton}
+        <Navbar bg="light" expand="lg">
+          <Container fluid>
+            <Navbar.Brand href="/">Home</Navbar.Brand>
+            <Navbar.Toggle aria-controls="navbarScroll" />
+            <Navbar.Collapse id="navbarScroll">
+              <Nav
+                className="me-auto my-2 my-lg-0"
+                style={{ maxHeight: "100px" }}
+                navbarScroll
               >
-                Search
-              </button>
-            </div>
-          </div>
-        </nav>
+              <Nav.Link href="/topRating">Ranking</Nav.Link>
+              </Nav>
+              <Form className="d-flex">
+                <Form.Control
+                  type="search"
+                  placeholder="Search"
+                  className="me-2"
+                  aria-label="Search"
+                  id="search_name_anime"
+                />
+                <Button variant="outline-success" onClick={this.handleSearchButton}>Search</Button>
+              </Form>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
       </React.Fragment>
     );
   }

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "bootstrap/dist/css/bootstrap.css";
 import UpperSearchBarComponent from "../upperSearchBarComponent";
 
 class MainComponentResult extends Component {

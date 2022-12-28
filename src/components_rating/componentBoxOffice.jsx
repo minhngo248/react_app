@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import UpperSearchBarComponent from "../upperSearchBarComponent";
 import ComponentDropDown from "./componentDropDown";
 
-class ComponentRating extends Component {
+class ComponentBoxOffice extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,7 +14,7 @@ class ComponentRating extends Component {
 
   componentDidMount() {
     if (this._mounted) return;
-    var url = `https://expressminhapp.azurewebsites.net/api/topRating`;
+    var url = `https://expressminhapp.azurewebsites.net/api/topBoxOffice`;
     axios.get(url).then(
       (response) => {
         this.setState({
@@ -22,37 +22,22 @@ class ComponentRating extends Component {
         });
         var topRate = {};
         for (var i in response.data) {
-          var point = String(response.data[i].ratings.value);
-          var pointArr = point.split(",");
-          
-          var sum = 0;
-          for (var j = 0; j < pointArr.length; j++) {
-            var pointMarked = 0;
-            if (pointArr[j].includes("%")) {
-              pointMarked = parseFloat(pointArr[j]) / 100;
-            } else if (pointArr[j].includes("/")) {
-              var poArr = pointArr[j].split("/");
-              pointMarked = Number(poArr[0]) / Number(poArr[1]);
-            } else {
-              pointMarked = 0.8;
-            }
-            sum += pointMarked / pointArr.length;
-          }
+          var box = parseInt(response.data[i].boxOffice.value);
           var arrKey = [
             response.data[i].item.value,
             response.data[i].itemLabel.value,
           ];
-          topRate[sum] = arrKey;
-        }
+          topRate[box] = arrKey;
+        }       
         const sortedTopRate = Object.keys(topRate)
-          .sort((a, b) => b - a)
+          .sort((a, b) => (b - a))
           .reduce((accumulator, key) => {
             accumulator[key] = topRate[key];
             return accumulator;
           }, {});
         var comp = 1; 
         for (var key in sortedTopRate) {
-            const elemBodyTab = document.getElementById("body_rating");
+            const elemBodyTab = document.getElementById("body_box");
             const elemTr = document.createElement("tr");
             const elemTh = document.createElement("th");
             elemTh.setAttribute("scope", "row");
@@ -63,7 +48,7 @@ class ComponentRating extends Component {
             elemA.innerHTML = sortedTopRate[key][1];
             elemTdName.appendChild(elemA);
             const elemTdRate = document.createElement("td");
-            elemTdRate.innerHTML = key;
+            elemTdRate.innerHTML = Number(key).toLocaleString('en-US');
             elemTr.appendChild(elemTh);
             elemTr.appendChild(elemTdName);
             elemTr.appendChild(elemTdRate);
@@ -83,18 +68,18 @@ class ComponentRating extends Component {
       <React.Fragment>
         <UpperSearchBarComponent />
 
-        <h3 className="text-center">Table of rating</h3>
-        <p className="text-center font-italic">(From source of Metacritics, RottenTomato ...)</p>
+        <h3 className="text-center">Top box office</h3>
+        <p className="text-center font-italic">(From source of Mojo)</p>
         <ComponentDropDown />
         <table className="table table-striped">
           <thead>
             <tr>
               <th scope="col">#</th>
               <th scope="col">Name</th>
-              <th scope="col">Rating</th>
+              <th scope="col">Box office (US dollar)</th>
             </tr>
           </thead>
-          <tbody className="table-group-divider" id="body_rating">
+          <tbody className="table-group-divider" id="body_box">
 
 
           </tbody>
@@ -104,4 +89,4 @@ class ComponentRating extends Component {
   }
 }
 
-export default ComponentRating;
+export default ComponentBoxOffice;
