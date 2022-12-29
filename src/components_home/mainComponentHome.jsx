@@ -9,28 +9,32 @@ class MainComponentHome extends Component {
     this.state = {
     };
     this.style_rating = {
-      display: 'inline-block',
+      display: 'block',
       float: 'left'
     }
     this.style_box = {
-      display: 'inline-block',
+      display: 'block',
       float: 'right'
     }
+    this._mounted = false;
+  }
+
+  componentDidMount() {
+    if (this._mounted) return;
+    const elemTitle = document.getElementById("page_title");
+    elemTitle.innerHTML = "Anifsearch";
+    this._mounted = true;
   }
 
   render() {
     return (
       <React.Fragment>
-        <ComponentBar />
-
-        <div id="carousel_rating" style={this.style_rating}>
-        <h4>Top film by rating</h4>
-        <CarouselComponent />
+        <div id="carousel_rating" className="d-block float-left w-75 p-3">
+          <CarouselComponent />
         </div>
 
-        <div id="carousel_box" style={this.style_box}>
-        <h4>Top film by box office</h4>
-        <CarouselBoxOffComponent />
+        <div>
+          <ComponentBar />
         </div>
       </React.Fragment>
     );

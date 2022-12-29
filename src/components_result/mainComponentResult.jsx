@@ -175,6 +175,8 @@ class MainComponentResult extends Component {
         elemTD.setAttribute("style", "text-align:center; font-weight: bold;");
         elemTD.innerHTML = response.data.filmLabel.value;
         row_label.appendChild(elemTD);
+        const elemTitle = document.getElementById("page_title");
+        elemTitle.innerHTML = response.data.filmLabel.value;
         // logo
         if (response.data.logo !== undefined) {
           const row_img = document.getElementById("row_img");

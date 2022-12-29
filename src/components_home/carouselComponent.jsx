@@ -72,7 +72,7 @@ class CarouselComponent extends Component {
   render() {
     return (
       <React.Fragment>
-        <Carousel fade className="w-50 p-2">
+        <Carousel fade className="w-75 p-3">
           <Carousel.Item>
             <a id="link_top_1">
             <img

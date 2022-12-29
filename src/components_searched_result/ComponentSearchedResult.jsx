@@ -13,6 +13,8 @@ class ComponentSearchedResult extends Component {
 
   componentDidMount() {
     if (this._mounted) return;
+    const elemTitle = document.getElementById("page_title");
+    elemTitle.innerHTML = "Searched results";
     const params = new URLSearchParams(this.props.location.search);
     const nameAnime = params.get("name");
     const director = params.get("director");

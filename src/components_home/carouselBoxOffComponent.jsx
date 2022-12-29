@@ -60,7 +60,7 @@ class CarouselBoxOffComponent extends Component {
   render() {
     return (
       <React.Fragment>
-        <Carousel fade className="w-50 p-2">
+        <Carousel fade className="w-45 p-3">
           <Carousel.Item>
             <a id="box_link_top_1">
             <img
