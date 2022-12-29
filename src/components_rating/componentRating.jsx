@@ -16,7 +16,7 @@ class ComponentRating extends Component {
     if (this._mounted) return;
     const elemTitle = document.getElementById("page_title");
     elemTitle.innerHTML = "Top rating";
-    var url = `https://expressminhapp.azurewebsites.net/api/topRating`;
+    var url = `/api/topRating`;
     axios.get(url).then(
       (response) => {
         this.setState({

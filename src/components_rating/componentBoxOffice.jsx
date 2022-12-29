@@ -16,7 +16,7 @@ class ComponentBoxOffice extends Component {
     if (this._mounted) return;
     const elemTitle = document.getElementById("page_title");
     elemTitle.innerHTML = "Box office";
-    var url = `https://expressminhapp.azurewebsites.net/api/topBoxOffice`;
+    var url = `/api/topBoxOffice`;
     axios.get(url).then(
       (response) => {
         this.setState({

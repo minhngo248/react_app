@@ -21,6 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "https://expressminhapp.azurewebsites.net",
   "eslintConfig": {
     "extends": [
       "react-app",

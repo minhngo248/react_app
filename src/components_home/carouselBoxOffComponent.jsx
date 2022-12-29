@@ -13,7 +13,7 @@ class CarouselBoxOffComponent extends Component {
 
   componentDidMount() {
     if (this._mounted) return;
-    var url = `https://expressminhapp.azurewebsites.net/api/topBoxOffice`;
+    var url = `/api/topBoxOffice`;
     axios.get(url).then(
       (response) => {
         this.setState({
@@ -62,7 +62,7 @@ class CarouselBoxOffComponent extends Component {
       <React.Fragment>
         <Carousel fade className="w-45 p-3">
           <Carousel.Item>
-            <a id="box_link_top_1">
+            <a id="box_link_top_1" href="#">
             <img
               className="d-block w-100"
               src="https://pbs.twimg.com/profile_images/724903596052103170/8Ri5g8JK.jpg"
@@ -75,7 +75,7 @@ class CarouselBoxOffComponent extends Component {
           </Carousel.Item>
           
           <Carousel.Item>
-            <a id="box_link_top_2">
+            <a id="box_link_top_2" href="#">
             <img
               className="d-block w-100"
               src="https://pbs.twimg.com/profile_images/724903596052103170/8Ri5g8JK.jpg"
@@ -88,7 +88,7 @@ class CarouselBoxOffComponent extends Component {
           </Carousel.Item>
 
           <Carousel.Item>
-            <a id="box_link_top_3">
+            <a id="box_link_top_3" href="#">
             <img
               className="d-block w-100"
               src="https://pbs.twimg.com/profile_images/724903596052103170/8Ri5g8JK.jpg"

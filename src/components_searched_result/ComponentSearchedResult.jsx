@@ -23,7 +23,7 @@ class ComponentSearchedResult extends Component {
     const elemRoot = document.getElementById("root");
     const elemInfo = document.createElement("div");
     elemInfo.setAttribute("id", "info_anime");
-    var url = `https://expressminhapp.azurewebsites.net/api/anime?name=${nameAnime}&director=${director}&dateFrom=${dateFrom}&dateTo=${dateTo}`;
+    var url = `/api/anime?name=${nameAnime}&director=${director}&dateFrom=${dateFrom}&dateTo=${dateTo}`;
     axios.get(url)
     .then(
       (response) => {

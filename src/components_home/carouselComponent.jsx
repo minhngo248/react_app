@@ -13,7 +13,7 @@ class CarouselComponent extends Component {
 
   componentDidMount() {
     if (this._mounted) return;
-    var url = `https://expressminhapp.azurewebsites.net/api/topRating`;
+    var url = `/api/topRating`;
     axios.get(url).then(
       (response) => {
         this.setState({
@@ -74,7 +74,7 @@ class CarouselComponent extends Component {
       <React.Fragment>
         <Carousel fade className="w-75 p-3">
           <Carousel.Item>
-            <a id="link_top_1">
+            <a id="link_top_1" href="#">
             <img
               className="d-block w-100"
               src="https://images.pexels.com/photos/1480689/pexels-photo-1480689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150&w=375"
@@ -88,7 +88,7 @@ class CarouselComponent extends Component {
           </Carousel.Item>
           
           <Carousel.Item>
-            <a id="link_top_2">
+            <a id="link_top_2" href="#">
             <img
               className="d-block w-100"
               src="https://images.pexels.com/photos/1480689/pexels-photo-1480689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150&w=375"
@@ -102,7 +102,7 @@ class CarouselComponent extends Component {
           </Carousel.Item>
 
           <Carousel.Item>
-            <a id="link_top_3">
+            <a id="link_top_3" href="#">
             <img
               className="d-block w-100"
               src="https://images.pexels.com/photos/1480689/pexels-photo-1480689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150&w=375"

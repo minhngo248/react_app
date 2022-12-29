@@ -17,9 +17,9 @@ class MainComponentResult extends Component {
     if (this._mounted) return;
     let params = new URLSearchParams(this.props.location.search);
     var idAnime = params.get("idAnime");
-    var url = `https://expressminhapp.azurewebsites.net/api/result/${idAnime}`;
+    var url = `/api/result/${idAnime}`;
     this.getData(url);
-    url = `https://expressminhapp.azurewebsites.net/api/result2/${idAnime}`;
+    url = `/api/result2/${idAnime}`;
     axios.get(url).then(
       (response) => {
         this.setState({
@@ -78,7 +78,7 @@ class MainComponentResult extends Component {
       }
     );
 
-    url = `https://expressminhapp.azurewebsites.net/api/result3/${idAnime}`;
+    url = `/api/result3/${idAnime}`;
     axios.get(url).then(
       (response) => {
         this.setState({
