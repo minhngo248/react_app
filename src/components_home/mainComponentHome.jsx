@@ -8,14 +8,6 @@ class MainComponentHome extends Component {
     super(props);
     this.state = {
     };
-    this.style_rating = {
-      display: 'block',
-      float: 'left'
-    }
-    this.style_box = {
-      display: 'block',
-      float: 'right'
-    }
     this._mounted = false;
   }
 
