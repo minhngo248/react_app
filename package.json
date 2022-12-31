@@ -23,6 +23,9 @@
     "eject": "react-scripts eject"
   },
   "proxy": "https://expressminhapp.azurewebsites.net",
+  "allowedHosts": [
+    "expressminhapp.azurewebsites.net"
+  ],
   "eslintConfig": {
     "extends": [
       "react-app",
