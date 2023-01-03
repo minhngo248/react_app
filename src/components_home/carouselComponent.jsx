@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
 import { Carousel } from "react-bootstrap";
-
 class CarouselComponent extends Component {
   constructor(props) {
     super(props);
@@ -49,17 +48,17 @@ class CarouselComponent extends Component {
             accumulator[key] = topRate[key];
             return accumulator;
           }, {});
-        
+
         var comp = 1;
         for (var key in sortedTopRate) {
-            if (comp > 3) break;
-            const elemNameTop = document.getElementById("name_top_" + comp);
-            elemNameTop.innerHTML = sortedTopRate[key][1];
-            const elemDirTop = document.getElementById("director_top_"+comp);
-            elemDirTop.innerHTML = "Directed by " + sortedTopRate[key][2];
-            const elemLinkTop = document.getElementById("link_top_"+comp);
-            elemLinkTop.setAttribute("href", "/result?idAnime=Q" + sortedTopRate[key][0].split('Q')[1]);
-            comp++;
+          if (comp > 3) break;
+          const elemNameTop = document.getElementById("name_top_" + comp);
+          elemNameTop.innerHTML = sortedTopRate[key][1];
+          const elemDirTop = document.getElementById("director_top_" + comp);
+          elemDirTop.innerHTML = "Directed by " + sortedTopRate[key][2];
+          const elemLinkTop = document.getElementById("link_top_" + comp);
+          elemLinkTop.setAttribute("href", "/result?idAnime=Q" + sortedTopRate[key][0].split('Q')[1]);
+          comp++;
         }
       },
       (error) => {
@@ -70,48 +69,55 @@ class CarouselComponent extends Component {
   }
 
   render() {
+    let styless = {
+      "width": "640px",
+      "height": "360px",
+    }
     return (
       <React.Fragment>
-        <Carousel fade className="w-75 p-3">
+        <Carousel class="myCarousel" fade className="w-75 p-3">
           <Carousel.Item>
             <a id="link_top_1" href="#">
-            <img
-              className="d-block w-100"
-              src="https://images.pexels.com/photos/1480689/pexels-photo-1480689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150&w=375"
-              alt="First slide"
-            />
-            <Carousel.Caption>
-              <h3 id="name_top_1"></h3>
-              <p id="director_top_1"></p>
-            </Carousel.Caption>
+              <img
+                width={1000} height={500}
+                object-fit="cover"
+                src="https://i.ytimg.com/vi/D0q0QeQbw9U/maxresdefault.jpg"
+                alt="First slide"
+              />
+              <Carousel.Caption>
+                <h3 id="name_top_1"></h3>
+                <p id="director_top_1"></p>
+              </Carousel.Caption>
             </a>
           </Carousel.Item>
-          
+
           <Carousel.Item>
             <a id="link_top_2" href="#">
-            <img
-              className="d-block w-100"
-              src="https://images.pexels.com/photos/1480689/pexels-photo-1480689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150&w=375"
-              alt="Second slide"
-            />
-            <Carousel.Caption>
-              <h3 id="name_top_2"></h3>
-              <p id="director_top_2"></p>
-            </Carousel.Caption>
+              <img
+                width={1000} height={500}
+                object-fit="cover"
+                //className="d-block w-100"
+                src="https://images.pexels.com/photos/1480689/pexels-photo-1480689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150&w=375"
+                alt="Second slide"
+              />
+              <Carousel.Caption>
+                <h3 id="name_top_2"></h3>
+                <p id="director_top_2"></p>
+              </Carousel.Caption>
             </a>
           </Carousel.Item>
 
           <Carousel.Item>
             <a id="link_top_3" href="#">
-            <img
-              className="d-block w-100"
-              src="https://images.pexels.com/photos/1480689/pexels-photo-1480689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150&w=375"
-              alt="Third slide"
-            />
-            <Carousel.Caption>
-              <h3 id="name_top_3"></h3>
-              <p id="director_top_3"></p>
-            </Carousel.Caption>
+              <img
+                className="d-block w-100"
+                src="https://images.pexels.com/photos/1480689/pexels-photo-1480689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150&w=375"
+                alt="Third slide"
+              />
+              <Carousel.Caption>
+                <h3 id="name_top_3"></h3>
+                <p id="director_top_3"></p>
+              </Carousel.Caption>
             </a>
           </Carousel.Item>
         </Carousel>

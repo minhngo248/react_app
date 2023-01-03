@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Nav } from "react-bootstrap";
 import GetAnimes from "../getAnimes";
 import Autocomplete from "react-autocomplete";
-
+import "./compBar.css";
 class ComponentBar extends Component {
   constructor(props) {
     super(props);
@@ -62,81 +62,85 @@ class ComponentBar extends Component {
     var getAni = new GetAnimes();
     return (
       <React.Fragment>
-        <div className="d-block">
-        <label>Name of anime:</label>
-        <br />
-        <Autocomplete
-          value={this.state.value}
-          inputProps={{ id: "nameAnime" }}
-          wrapperStyle={{
-            position: "relative",
-            display: "inline-block",
-          }}
-          items={this.state.jsonFilm}
-          getItemValue={(item) => item.name}
-          shouldItemRender={getAni.matchFilm}
-          onChange={(event, valueName) => this.setState({ value: valueName })}
-          onSelect={(valueName) => this.setState({ value: valueName })}
-          renderMenu={(children) => (
-            <Nav
-              className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px", maxWidth: "160px" }}
-              navbarScroll
-            >
-              {children}
-            </Nav>
-          )}
-          renderItem={(item, isHighlighted) => (
-            <div className={`item ${isHighlighted ? "item-highlighted" : ""}`}>
-              {item.name}
-            </div>
-          )}
-        />
-        <br />
-        <br />
+        <div className="compBar">
+          <div class="d-block">
+            <h1>AnIF'search</h1>
+            <h4>The one search engine for weebs</h4>
+            <br />
+            <label>Title of Anime</label>
+            <Autocomplete
+              value={this.state.value}
+              inputProps={{ id: "nameAnime" }}
+              wrapperStyle={{
+                position: "relative",
+                display: "inline-block",
 
-        <label>Director </label>
-        <br />
-        <Autocomplete
-          value={this.state.valueDir}
-          inputProps={{ id: "director" }}
-          wrapperStyle={{
-            position: "relative",
-            display: "inline-block",
-          }}
-          items={this.state.jsonDirector}
-          getItemValue={(item) => item.name}
-          shouldItemRender={getAni.matchDirector}
-          onChange={(event, value) => this.setState({ valueDir: value })}
-          onSelect={(value) => this.setState({ valueDir: value })}
-          renderMenu={(children) => (
-            <Nav
-              className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px", maxWidth: "160px" }}
-              navbarScroll
-            >
-              {children}
-            </Nav>
-          )}
-          renderItem={(item, isHighlighted) => (
-            <div className={`item ${isHighlighted ? "item-highlighted" : ""}`}>
-              {item.name}
-            </div>
-          )}
-        />
+              }}
+              items={this.state.jsonFilm}
+              getItemValue={(item) => item.name}
+              shouldItemRender={getAni.matchFilm}
+              onChange={(event, valueName) => this.setState({ value: valueName })}
+              onSelect={(valueName) => this.setState({ value: valueName })}
+              renderMenu={(children) => (
+                <Nav
+                  className="me-auto my-2 my-lg-0"
+                  style={{ maxHeight: "100px", maxWidth: "160px", }}
+                  navbarScroll
+                >
+                  {children}
+                </Nav>
+              )}
+              renderItem={(item, isHighlighted) => (
+                <div className={`item ${isHighlighted ? "item-highlighted" : ""}`}>
+                  {item.name}
+                </div>
+              )}
+            />
+            <br />
+            <br />
+
+            <label>Director </label>
+            <Autocomplete
+              value={this.state.valueDir}
+              inputProps={{ id: "director" }}
+              wrapperStyle={{
+                position: "relative",
+                display: "inline-block",
+              }}
+              items={this.state.jsonDirector}
+              getItemValue={(item) => item.name}
+              shouldItemRender={getAni.matchDirector}
+              onChange={(event, value) => this.setState({ valueDir: value })}
+              onSelect={(value) => this.setState({ valueDir: value })}
+              renderMenu={(children) => (
+                <Nav
+                  className="me-auto my-2 my-lg-0"
+                  style={{ maxHeight: "100px", maxWidth: "160px" }}
+                  navbarScroll
+                >
+                  {children}
+                </Nav>
+              )}
+              renderItem={(item, isHighlighted) => (
+                <div className={`item ${isHighlighted ? "item-highlighted" : ""}`}>
+                  {item.name}
+                </div>
+              )}
+            />
+          </div>
+          <br />
+          <br />
+
+
+          <label>Release date </label>
+          <br />
+          From <input type="date" id="dateFrom" name="dateFrom" /> to{" "}
+          <input type="date" id="dateTo" name="dateTo" />
+          <br />
+          <button id="button_search" onClick={this.handleSearchButton}>
+            Search
+          </button>
         </div>
-        <br />
-        <br />
-
-
-        <label>Release date </label>
-        <br />
-        From <input type="date" id="dateFrom" name="dateFrom" /> to{" "}
-        <input type="date" id="dateTo" name="dateTo" />
-        <br />
-        <button id="button_search" onClick={this.handleSearchButton}>
-          Search
-        </button>
       </React.Fragment>
     );
   }

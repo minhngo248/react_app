@@ -19,7 +19,7 @@ function App() {
           with exact path "/", in component props 
           we passes the imported component*/}
           <Route exact path="/" component={MainComponentHome} />
-            
+
           {/* This route is for about component 
           with exact path "/about", in component 
           props we passes the imported component*/}
@@ -39,7 +39,7 @@ function App() {
           with exact path "/about", in component 
           props we passes the imported component*/}
           <Route path="/topBoxOffice" component={ComponentBoxOffice} />
-            
+
           {/* If any route mismatches the upper 
           route endpoints then, redirect triggers 
           and redirects app to home component with to="/" */}

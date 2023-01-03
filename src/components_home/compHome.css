@@ -1,0 +1,5 @@
+.compHome{display:flex; flex-direction:row; background-color: #2F3136;}
+/* center all h3 and h4 tags */
+h1{display:flex; flex-direction:column; align-items:center; justify-content:center;}
+h4{display:flex; flex-direction:column; align-items:center; margin-left: 20px; margin-right: 20px; justify-content:center;}
+label{display:flex; flex-direction:column; align-items:center; justify-content:center; font-weight:20; font-size:x-large;}

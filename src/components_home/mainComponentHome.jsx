@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import CarouselBoxOffComponent from "./carouselBoxOffComponent";
 import CarouselComponent from "./carouselComponent";
 import ComponentBar from "./componentBar";
+import "./compHome.css";
 
 class MainComponentHome extends Component {
   constructor(props) {
@@ -21,12 +22,14 @@ class MainComponentHome extends Component {
   render() {
     return (
       <React.Fragment>
-        <div id="carousel_rating" className="d-block float-left w-75 p-3">
-          <CarouselComponent />
-        </div>
+        <div className="compHome">
+          <div id="carousel_rating" className="d-block float-left w-75 p-3">
+            <CarouselComponent />
+          </div>
 
-        <div>
-          <ComponentBar />
+          <div>
+            <ComponentBar />
+          </div>
         </div>
       </React.Fragment>
     );
