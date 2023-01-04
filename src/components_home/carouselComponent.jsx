@@ -79,9 +79,9 @@ class CarouselComponent extends Component {
           <Carousel.Item>
             <a id="link_top_1" href="#">
               <img
-                width={1000} height={500}
                 object-fit="cover"
-                src="https://i.ytimg.com/vi/D0q0QeQbw9U/maxresdefault.jpg"
+                className="d-block w-100"
+                src="https://i.imgur.com/xqqLHJc.png"
                 alt="First slide"
               />
               <Carousel.Caption>
@@ -94,10 +94,9 @@ class CarouselComponent extends Component {
           <Carousel.Item>
             <a id="link_top_2" href="#">
               <img
-                width={1000} height={500}
                 object-fit="cover"
-                //className="d-block w-100"
-                src="https://images.pexels.com/photos/1480689/pexels-photo-1480689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150&w=375"
+                className="d-block w-100"
+                src="https://i.imgur.com/xqqLHJc.png"
                 alt="Second slide"
               />
               <Carousel.Caption>
@@ -110,8 +109,9 @@ class CarouselComponent extends Component {
           <Carousel.Item>
             <a id="link_top_3" href="#">
               <img
+                object-fit="cover"
                 className="d-block w-100"
-                src="https://images.pexels.com/photos/1480689/pexels-photo-1480689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150&w=375"
+                src="https://i.imgur.com/xqqLHJc.png"
                 alt="Third slide"
               />
               <Carousel.Caption>

@@ -1,9 +1,10 @@
 /* Component of bar search */
 import React, { Component } from "react";
-import { Nav } from "react-bootstrap";
+import { Nav, NavItem } from "react-bootstrap";
 import GetAnimes from "../getAnimes";
 import Autocomplete from "react-autocomplete";
 import "./compBar.css";
+
 class ComponentBar extends Component {
   constructor(props) {
     super(props);
@@ -67,14 +68,15 @@ class ComponentBar extends Component {
             <h1>AnIF'search</h1>
             <h4>The one search engine for weebs</h4>
             <br />
-            <label>Title of Anime</label>
+            <div style={{textAlign: "center"}}>Title of anime </div>
+            <div style={{marginLeft: "12%"}}>
             <Autocomplete
+              className="autocomp"
               value={this.state.value}
               inputProps={{ id: "nameAnime" }}
               wrapperStyle={{
                 position: "relative",
                 display: "inline-block",
-
               }}
               items={this.state.jsonFilm}
               getItemValue={(item) => item.name}
@@ -82,13 +84,9 @@ class ComponentBar extends Component {
               onChange={(event, valueName) => this.setState({ value: valueName })}
               onSelect={(valueName) => this.setState({ value: valueName })}
               renderMenu={(children) => (
-                <Nav
-                  className="me-auto my-2 my-lg-0"
-                  style={{ maxHeight: "100px", maxWidth: "160px", }}
-                  navbarScroll
-                >
-                  {children}
-                </Nav>
+                <div className = "menu">
+                  { children }
+                </div>
               )}
               renderItem={(item, isHighlighted) => (
                 <div className={`item ${isHighlighted ? "item-highlighted" : ""}`}>
@@ -96,16 +94,21 @@ class ComponentBar extends Component {
                 </div>
               )}
             />
+            </div>
+
+            <br />
+            <br />
             <br />
             <br />
 
-            <label>Director </label>
+            <div style={{textAlign: "center"}}>Director </div>
+            <div style={{marginLeft: "12%"}}>
             <Autocomplete
               value={this.state.valueDir}
               inputProps={{ id: "director" }}
               wrapperStyle={{
                 position: "relative",
-                display: "inline-block",
+                display: "inline-block"
               }}
               items={this.state.jsonDirector}
               getItemValue={(item) => item.name}
@@ -113,13 +116,9 @@ class ComponentBar extends Component {
               onChange={(event, value) => this.setState({ valueDir: value })}
               onSelect={(value) => this.setState({ valueDir: value })}
               renderMenu={(children) => (
-                <Nav
-                  className="me-auto my-2 my-lg-0"
-                  style={{ maxHeight: "100px", maxWidth: "160px" }}
-                  navbarScroll
-                >
-                  {children}
-                </Nav>
+                <div className = "menu">
+                  { children }
+                </div>
               )}
               renderItem={(item, isHighlighted) => (
                 <div className={`item ${isHighlighted ? "item-highlighted" : ""}`}>
@@ -127,13 +126,14 @@ class ComponentBar extends Component {
                 </div>
               )}
             />
+            </div>
           </div>
           <br />
           <br />
-
-
-          <label>Release date </label>
           <br />
+          <br />
+
+          <div style={{textAlign: "center"}}>Release date</div>
           From <input type="date" id="dateFrom" name="dateFrom" /> to{" "}
           <input type="date" id="dateTo" name="dateTo" />
           <br />

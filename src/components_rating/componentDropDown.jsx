@@ -8,7 +8,7 @@ class ComponentDropDown extends Component {
       <>
         <Dropdown>
           <Dropdown.Toggle variant="success" id="dropdown-basic">
-            Dropdown Button
+            Ranking
           </Dropdown.Toggle>
 
           <Dropdown.Menu>

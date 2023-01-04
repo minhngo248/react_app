@@ -16,3 +16,12 @@ code {
   color: white;
   background-color: #4095bf;
 }
+
+.menu {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #cccccc;
+  overflow:scroll;
+  height: 130px;
+}
