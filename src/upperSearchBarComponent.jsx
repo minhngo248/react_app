@@ -75,10 +75,9 @@ class UpperSearchBarComponent extends Component {
                   onChange={(event, value) => this.setState({ value })}
                   onSelect={(value) => this.setState({ value })}
                   renderMenu={(children) => (
-                    <Nav
-                      className="me-auto my-2 my-lg-0"
-                      style={{ maxHeight: '100px', maxWidth: '160px' }}
-                      navbarScroll>{children}</Nav>
+                    <div className = "menu">
+                      { children }
+                    </div>
                   )}
                   renderItem={(item, isHighlighted) => (
                     <div className={`item ${isHighlighted ? "item-highlighted" : ""}`}>
