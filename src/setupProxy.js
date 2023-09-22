@@ -4,7 +4,7 @@ module.exports = function (app) {
     app.use(
         '/api',
         createProxyMiddleware({
-            target: 'https://expressminhapp.azurewebsites.net',
+            target: 'http://anime-back.francecentral.azurecontainer.io',
             changeOrigin: true,
         })
     );
